@@ -25,15 +25,7 @@ galleryStyle.style.listStyle = 'none';
 
 galleryEl.insertAdjacentHTML('beforeend', createCard.join(''));
 
-galleryEl.addEventListener('click', onClick);
-
-function onClick(event) {
-  event.preventDefault();
-
-  if (event.target.nodeName !== 'IMG') {
-    return;
-  }
-}
+//
 let gallery = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,

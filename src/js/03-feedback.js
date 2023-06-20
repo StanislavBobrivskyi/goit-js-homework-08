@@ -33,16 +33,20 @@ form.addEventListener('input', () => {
   throttledSaveFormState();
 });
 
-form.addEventListener('submit', event => {
+form.addEventListener('submit', sendForm);
+
+function sendForm(event) {
   event.preventDefault();
 
-  clearFormState();
-  console.log({
-    email: emailInput.value,
-    message: messageInput.value,
-  });
+  if (emailInput.value !== '' && messageInput.value !== '') {
+    clearFormState();
+    console.log({
+      email: emailInput.value,
+      message: messageInput.value,
+    });
 
-  form.reset();
-});
+    form.reset();
+  }
+}
 
 loadFormState();
